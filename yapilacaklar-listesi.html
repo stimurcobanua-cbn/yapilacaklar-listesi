@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Yapılacaklar Listesi</title>
+<style>
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    padding: 20px;
+    background-color: #ff9800;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+    min-height: 100vh;
+  }
+
+  .container {
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  h1 {
+    text-align: center;
+    color: #3a2200;
+    margin-bottom: 20px;
+    font-size: 1.8rem;
+  }
+
+  .add-form {
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 16px;
+    margin-bottom: 24px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .add-form input[type="text"] {
+    flex: 1 1 200px;
+    padding: 10px 12px;
+    font-size: 1rem;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    outline: none;
+  }
+
+  .add-form input[type="text"]:focus {
+    border-color: #ff9800;
+  }
+
+  .add-form select {
+    padding: 10px 12px;
+    font-size: 1rem;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    background: #fff;
+  }
+
+  .add-form button {
+    padding: 10px 18px;
+    font-size: 1rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    background-color: #3a2200;
+    color: #fff;
+    cursor: pointer;
+    transition: opacity 0.15s;
+  }
+
+  .add-form button:hover {
+    opacity: 0.85;
+  }
+
+  .lists {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  @media (min-width: 640px) {
+    .lists {
+      flex-direction: row;
+    }
+    .category {
+      flex: 1;
+    }
+  }
+
+  .category {
+    border-radius: 12px;
+    padding: 16px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  }
+
+  .category.market {
+    background-color: #0d3b66;
+    color: #ffffff;
+  }
+
+  .category.bugun {
+    background-color: #f1f7ed;
+    color: #1b3a1b;
+    border: 2px solid #4a7c3c;
+  }
+
+  .category h2 {
+    margin-top: 0;
+    font-size: 1.2rem;
+    margin-bottom: 12px;
+  }
+
+  ul.task-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  ul.task-list li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(255,255,255,0.12);
+    border-radius: 8px;
+    padding: 8px 10px;
+  }
+
+  .category.bugun ul.task-list li {
+    background: rgba(0,0,0,0.05);
+  }
+
+  ul.task-list li input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+    cursor: pointer;
+  }
+
+  ul.task-list li .task-text {
+    flex: 1;
+    word-break: break-word;
+  }
+
+  ul.task-list li.done .task-text {
+    text-decoration: line-through;
+    opacity: 0.6;
+  }
+
+  ul.task-list li .delete-btn {
+    background: #d32f2f;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    width: 28px;
+    height: 28px;
+    flex-shrink: 0;
+    cursor: pointer;
+    font-size: 1rem;
+    line-height: 1;
+  }
+
+  ul.task-list li .delete-btn:hover {
+    background: #b71c1c;
+  }
+
+  .empty-msg {
+    opacity: 0.7;
+    font-style: italic;
+    font-size: 0.9rem;
+  }
+
+  .save-bar {
+    text-align: center;
+    margin-top: 24px;
+  }
+
+  #saveBtn {
+    padding: 12px 28px;
+    font-size: 1.05rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    background-color: #2e7d32;
+    color: #fff;
+    cursor: pointer;
+    transition: opacity 0.15s;
+  }
+
+  #saveBtn:hover {
+    opacity: 0.85;
+  }
+
+  #saveStatus {
+    display: block;
+    margin-top: 8px;
+    color: #3a2200;
+    font-weight: 600;
+    min-height: 1.2em;
+  }
+</style>
+</head>
+<body>
+  <div class="container">
+    <h1>📝 Yapılacaklar Listesi</h1>
+
+    <div class="add-form">
+      <input type="text" id="taskInput" placeholder="Yeni görev yaz..." autocomplete="off">
+      <select id="categorySelect">
+        <option value="market">Market Alışverişi</option>
+        <option value="bugun">Bugün Yapılacaklar</option>
+      </select>
+      <button id="addBtn">Ekle</button>
+    </div>
+
+    <div class="lists">
+      <div class="category market">
+        <h2>🛒 Market Alışverişi</h2>
+        <ul class="task-list" id="marketList"></ul>
+      </div>
+
+      <div class="category bugun">
+        <h2>✅ Bugün Yapılacaklar</h2>
+        <ul class="task-list" id="bugunList"></ul>
+      </div>
+    </div>
+
+    <div class="save-bar">
+      <button id="saveBtn">💾 Kaydet</button>
+      <span id="saveStatus"></span>
+    </div>
+  </div>
+
+<script>
+  const STORAGE_KEY = 'todoListData';
+
+  let tasks = {
+    market: [],
+    bugun: []
+  };
+
+  const marketListEl = document.getElementById('marketList');
+  const bugunListEl = document.getElementById('bugunList');
+  const taskInput = document.getElementById('taskInput');
+  const categorySelect = document.getElementById('categorySelect');
+  const addBtn = document.getElementById('addBtn');
+  const saveBtn = document.getElementById('saveBtn');
+  const saveStatus = document.getElementById('saveStatus');
+
+  function render() {
+    renderCategory('market', marketListEl);
+    renderCategory('bugun', bugunListEl);
+  }
+
+  function renderCategory(category, listEl) {
+    listEl.innerHTML = '';
+    const items = tasks[category];
+
+    if (items.length === 0) {
+      const empty = document.createElement('li');
+      empty.className = 'empty-msg';
+      empty.style.background = 'transparent';
+      empty.textContent = 'Henüz görev yok.';
+      listEl.appendChild(empty);
+      return;
+    }
+
+    items.forEach((task, index) => {
+      const li = document.createElement('li');
+      if (task.done) li.classList.add('done');
+
+      const checkbox = document.createElement('input');
+      checkbox.type = 'checkbox';
+      checkbox.checked = task.done;
+      checkbox.addEventListener('change', () => {
+        task.done = checkbox.checked;
+        render();
+      });
+
+      const span = document.createElement('span');
+      span.className = 'task-text';
+      span.textContent = task.text;
+
+      const delBtn = document.createElement('button');
+      delBtn.className = 'delete-btn';
+      delBtn.textContent = '✕';
+      delBtn.setAttribute('aria-label', 'Sil');
+      delBtn.addEventListener('click', () => {
+        tasks[category].splice(index, 1);
+        render();
+      });
+
+      li.appendChild(checkbox);
+      li.appendChild(span);
+      li.appendChild(delBtn);
+      listEl.appendChild(li);
+    });
+  }
+
+  function addTask() {
+    const text = taskInput.value.trim();
+    if (!text) return;
+    const category = categorySelect.value;
+    tasks[category].push({ text, done: false });
+    taskInput.value = '';
+    taskInput.focus();
+    render();
+  }
+
+  addBtn.addEventListener('click', addTask);
+  taskInput.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter') {
+      e.preventDefault();
+      addTask();
+    }
+  });
+
+  saveBtn.addEventListener('click', () => {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(tasks));
+    saveStatus.textContent = 'Kaydedildi ✔';
+    setTimeout(() => { saveStatus.textContent = ''; }, 2000);
+  });
+
+  function loadTasks() {
+    const saved = localStorage.getItem(STORAGE_KEY);
+    if (saved) {
+      try {
+        const parsed = JSON.parse(saved);
+        if (parsed.market) tasks.market = parsed.market;
+        if (parsed.bugun) tasks.bugun = parsed.bugun;
+      } catch (e) {
+        console.error('Kayıtlı liste okunamadı:', e);
+      }
+    }
+  }
+
+  loadTasks();
+  render();
+</script>
+</body>
+</html>
