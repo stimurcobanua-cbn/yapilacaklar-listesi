@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Projelerim</title>
+<style>
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    padding: 20px;
+    background-color: #ff9800;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+    min-height: 100vh;
+  }
+
+  .container {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  header {
+    text-align: center;
+    margin-bottom: 28px;
+  }
+
+  h1 {
+    color: #3a2200;
+    margin: 0 0 8px;
+    font-size: 1.8rem;
+  }
+
+  header p {
+    margin: 0;
+    color: #3a2200;
+    opacity: 0.85;
+    font-size: 0.95rem;
+  }
+
+  .back-link {
+    display: inline-block;
+    margin-bottom: 16px;
+    color: #3a2200;
+    background: rgba(255,255,255,0.5);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.85rem;
+    padding: 6px 12px;
+    border-radius: 20px;
+    transition: background 0.15s;
+  }
+
+  .back-link:hover {
+    background: rgba(255,255,255,0.75);
+  }
+
+  .cards {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  @media (min-width: 640px) {
+    .cards {
+      flex-direction: row;
+      flex-wrap: wrap;
+    }
+    .card {
+      flex: 1 1 260px;
+    }
+  }
+
+  .card {
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 18px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .card h2 {
+    margin: 0;
+    font-size: 1.15rem;
+    color: #1b3a1b;
+  }
+
+  .card p {
+    margin: 0;
+    flex: 1;
+    color: #333;
+    font-size: 0.9rem;
+  }
+
+  .card a.open-btn {
+    align-self: flex-start;
+    margin-top: 4px;
+    padding: 8px 18px;
+    font-size: 0.95rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    background-color: #2e7d32;
+    color: #fff;
+    text-decoration: none;
+    cursor: pointer;
+    transition: opacity 0.15s;
+  }
+
+  .card a.open-btn:hover {
+    opacity: 0.85;
+  }
+</style>
+</head>
+<body>
+  <div class="container">
+    <a class="back-link" href="/">← Ana sayfaya dön</a>
+    <header>
+      <h1>📁 Projelerim</h1>
+      <p>Yaptığım tüm araçlar burada listelenir</p>
+    </header>
+
+    <div class="cards">
+      <div class="card">
+        <h2>✅ Yapılacaklar Listesi</h2>
+        <p>Günlük görevlerini takip et</p>
+        <a class="open-btn" href="/">Aç</a>
+      </div>
+
+      <div class="card">
+        <h2>📄 PDF Sayfa Seçici</h2>
+        <p>PDF'ten istediğin sayfaları seç, birleştir, indir</p>
+        <a class="open-btn" href="/pdf-sayfa-secici/">Aç</a>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
