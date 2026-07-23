@@ -179,6 +179,102 @@
     margin-bottom: 24px;
   }
 
+  /* Randevu Formu */
+  .randevu-form-wrap {
+    max-width: 420px;
+    margin: 28px auto 0;
+    background: rgba(255,255,255,0.08);
+    border-radius: 16px;
+    padding: 24px;
+    text-align: left;
+  }
+
+  .hero .randevu-form-wrap {
+    background: rgba(255,255,255,0.08);
+  }
+
+  .alt-cta .randevu-form-wrap {
+    background: #fff;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+    border: 1px solid rgba(109,27,44,0.15);
+  }
+
+  .form-baslik {
+    font-weight: bold;
+    font-size: 1rem;
+    margin: 0 0 16px;
+    text-align: center;
+    color: var(--altin);
+  }
+
+  .alt-cta .form-baslik {
+    color: var(--bordo);
+  }
+
+  .form-grup {
+    margin-bottom: 14px;
+  }
+
+  .form-grup label {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: bold;
+    margin-bottom: 6px;
+  }
+
+  .hero .form-grup label {
+    color: var(--krem);
+  }
+
+  .alt-cta .form-grup label {
+    color: var(--bordo);
+  }
+
+  .form-grup input,
+  .form-grup select,
+  .form-grup textarea {
+    width: 100%;
+    padding: 10px 12px;
+    border-radius: 8px;
+    border: 1px solid rgba(0,0,0,0.15);
+    font-family: inherit;
+    font-size: 0.95rem;
+    background: #fff;
+    color: var(--yazi);
+  }
+
+  .form-grup textarea {
+    resize: vertical;
+    min-height: 70px;
+  }
+
+  .form-gonder {
+    display: block;
+    width: 100%;
+    background: var(--altin);
+    color: var(--bordo-koyu);
+    font-weight: bold;
+    font-size: 1rem;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: opacity 0.15s;
+  }
+
+  .form-gonder:hover {
+    opacity: 0.9;
+  }
+
+  .bot-field-wrap {
+    position: absolute;
+    left: -9999px;
+    top: -9999px;
+    height: 0;
+    width: 0;
+    overflow: hidden;
+  }
+
   footer {
     text-align: center;
     padding: 20px;
@@ -194,6 +290,45 @@
     <h1>Şıklık Kuaför</h1>
     <p>Randevunu Hemen Al</p>
     <a class="btn-randevu" href="https://wa.me/905XXXXXXXXX" target="_blank" rel="noopener">Randevu Al</a>
+
+    <div class="randevu-form-wrap">
+      <p class="form-baslik">Ya da formu doldur, sana biz dönelim</p>
+      <form name="randevu-formu" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" action="/tesekkurler.html">
+        <input type="hidden" name="form-name" value="randevu-formu">
+        <div class="bot-field-wrap">
+          <label>Bu alanı boş bırakın: <input name="bot-field"></label>
+        </div>
+
+        <div class="form-grup">
+          <label for="hero-ad-soyad">Ad Soyad</label>
+          <input type="text" id="hero-ad-soyad" name="ad-soyad" required>
+        </div>
+
+        <div class="form-grup">
+          <label for="hero-telefon">Telefon</label>
+          <input type="tel" id="hero-telefon" name="telefon" required>
+        </div>
+
+        <div class="form-grup">
+          <label for="hero-hizmet">Hizmet</label>
+          <select id="hero-hizmet" name="hizmet" required>
+            <option value="">Seçiniz</option>
+            <option value="Saç Kesimi">Saç Kesimi</option>
+            <option value="Saç Boyası">Saç Boyası</option>
+            <option value="Fön">Fön</option>
+            <option value="Manikür">Manikür</option>
+            <option value="Cilt Bakımı">Cilt Bakımı</option>
+          </select>
+        </div>
+
+        <div class="form-grup">
+          <label for="hero-not">Not</label>
+          <textarea id="hero-not" name="not" placeholder="Eklemek istediğiniz bir şey var mı?"></textarea>
+        </div>
+
+        <button type="submit" class="form-gonder">Randevu Talebi Gönder</button>
+      </form>
+    </div>
   </section>
 
   <section id="hizmetler">
@@ -247,6 +382,45 @@
   <section class="alt-cta">
     <h2>Randevunu şimdi al, şıklığın tadını çıkar</h2>
     <a class="btn-randevu" href="https://wa.me/905XXXXXXXXX" target="_blank" rel="noopener">Randevu Al</a>
+
+    <div class="randevu-form-wrap">
+      <p class="form-baslik">Ya da formu doldur, sana biz dönelim</p>
+      <form name="randevu-formu" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" action="/tesekkurler.html">
+        <input type="hidden" name="form-name" value="randevu-formu">
+        <div class="bot-field-wrap">
+          <label>Bu alanı boş bırakın: <input name="bot-field"></label>
+        </div>
+
+        <div class="form-grup">
+          <label for="cta-ad-soyad">Ad Soyad</label>
+          <input type="text" id="cta-ad-soyad" name="ad-soyad" required>
+        </div>
+
+        <div class="form-grup">
+          <label for="cta-telefon">Telefon</label>
+          <input type="tel" id="cta-telefon" name="telefon" required>
+        </div>
+
+        <div class="form-grup">
+          <label for="cta-hizmet">Hizmet</label>
+          <select id="cta-hizmet" name="hizmet" required>
+            <option value="">Seçiniz</option>
+            <option value="Saç Kesimi">Saç Kesimi</option>
+            <option value="Saç Boyası">Saç Boyası</option>
+            <option value="Fön">Fön</option>
+            <option value="Manikür">Manikür</option>
+            <option value="Cilt Bakımı">Cilt Bakımı</option>
+          </select>
+        </div>
+
+        <div class="form-grup">
+          <label for="cta-not">Not</label>
+          <textarea id="cta-not" name="not" placeholder="Eklemek istediğiniz bir şey var mı?"></textarea>
+        </div>
+
+        <button type="submit" class="form-gonder">Randevu Talebi Gönder</button>
+      </form>
+    </div>
   </section>
 
   <footer>

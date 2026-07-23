@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Teşekkürler - Şıklık Kuaför</title>
+<style>
+  :root {
+    --bordo: #6d1b2c;
+    --bordo-koyu: #4a0f1c;
+    --altin: #c9a24b;
+    --krem: #f7f0e3;
+    --yazi: #2b1810;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    background: linear-gradient(160deg, var(--bordo) 0%, var(--bordo-koyu) 100%);
+    color: var(--krem);
+    font-family: Georgia, "Times New Roman", serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .kutu {
+    max-width: 480px;
+    padding: 50px 30px;
+  }
+
+  .ikon {
+    font-size: 3rem;
+    margin-bottom: 16px;
+  }
+
+  h1 {
+    color: var(--altin);
+    font-size: 2rem;
+    margin: 0 0 16px;
+  }
+
+  p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin: 0 0 32px;
+    opacity: 0.95;
+  }
+
+  .btn-donus {
+    display: inline-block;
+    background: var(--altin);
+    color: var(--bordo-koyu);
+    font-weight: bold;
+    font-size: 1rem;
+    padding: 14px 32px;
+    border-radius: 30px;
+    text-decoration: none;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.25);
+    transition: transform 0.15s, opacity 0.15s;
+  }
+
+  .btn-donus:hover {
+    transform: translateY(-2px);
+    opacity: 0.92;
+  }
+</style>
+</head>
+<body>
+  <div class="kutu">
+    <div class="ikon">✅</div>
+    <h1>Teşekkürler!</h1>
+    <p>Talebiniz alındı, en kısa sürede size dönüş yapacağız.</p>
+    <a class="btn-donus" href="/kuafor-landing/">Ana Sayfaya Dön</a>
+  </div>
+</body>
+</html>
