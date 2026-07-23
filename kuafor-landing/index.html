@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Şıklık Kuaför</title>
+<style>
+  :root {
+    --bordo: #6d1b2c;
+    --bordo-koyu: #4a0f1c;
+    --altin: #c9a24b;
+    --krem: #f7f0e3;
+    --yazi: #2b1810;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    padding: 0;
+    background-color: var(--krem);
+    color: var(--yazi);
+    font-family: Georgia, "Times New Roman", serif;
+  }
+
+  a { text-decoration: none; }
+
+  .btn-randevu {
+    display: inline-block;
+    background: var(--altin);
+    color: var(--bordo-koyu);
+    font-weight: bold;
+    font-size: 1.1rem;
+    padding: 16px 36px;
+    border-radius: 30px;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.25);
+    transition: transform 0.15s, opacity 0.15s;
+  }
+
+  .btn-randevu:hover {
+    transform: translateY(-2px);
+    opacity: 0.92;
+  }
+
+  /* Hero */
+  .hero {
+    background: linear-gradient(160deg, var(--bordo) 0%, var(--bordo-koyu) 100%);
+    color: var(--krem);
+    text-align: center;
+    padding: 80px 20px 70px;
+  }
+
+  .hero h1 {
+    font-size: 2.6rem;
+    margin: 0 0 12px;
+    letter-spacing: 1px;
+    color: var(--altin);
+  }
+
+  .hero p {
+    font-size: 1.2rem;
+    margin: 0 0 32px;
+    opacity: 0.9;
+  }
+
+  /* Sections */
+  section {
+    padding: 60px 20px;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  section h2 {
+    text-align: center;
+    color: var(--bordo);
+    font-size: 1.8rem;
+    margin-bottom: 40px;
+    position: relative;
+  }
+
+  section h2::after {
+    content: "";
+    display: block;
+    width: 60px;
+    height: 3px;
+    background: var(--altin);
+    margin: 12px auto 0;
+  }
+
+  /* Hizmetler */
+  .hizmetler-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 20px;
+  }
+
+  .hizmet-kart {
+    background: #fff;
+    border: 1px solid rgba(109,27,44,0.15);
+    border-radius: 14px;
+    padding: 28px 18px;
+    text-align: center;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.06);
+    transition: transform 0.15s;
+  }
+
+  .hizmet-kart:hover {
+    transform: translateY(-4px);
+  }
+
+  .hizmet-kart .ikon {
+    font-size: 2.4rem;
+    margin-bottom: 12px;
+  }
+
+  .hizmet-kart h3 {
+    margin: 0 0 8px;
+    font-size: 1.1rem;
+    color: var(--bordo);
+  }
+
+  .hizmet-kart .fiyat {
+    color: var(--altin);
+    font-weight: bold;
+    font-size: 1.05rem;
+  }
+
+  /* Galeri */
+  .galeri-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+  }
+
+  .galeri-kutu {
+    background: #ddd;
+    border-radius: 14px;
+    aspect-ratio: 4 / 3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #777;
+    font-size: 1rem;
+    font-weight: bold;
+  }
+
+  /* Konum */
+  .konum {
+    background: var(--bordo);
+    color: var(--krem);
+  }
+
+  .konum h2 {
+    color: var(--altin);
+  }
+
+  .konum-bilgi {
+    max-width: 500px;
+    margin: 0 auto;
+    text-align: center;
+    line-height: 1.8;
+    font-size: 1.05rem;
+  }
+
+  .konum-bilgi strong {
+    color: var(--altin);
+  }
+
+  /* Alt CTA */
+  .alt-cta {
+    text-align: center;
+    padding: 70px 20px;
+    background: var(--krem);
+  }
+
+  .alt-cta h2 {
+    color: var(--bordo);
+    font-size: 1.6rem;
+    margin-bottom: 24px;
+  }
+
+  footer {
+    text-align: center;
+    padding: 20px;
+    background: var(--bordo-koyu);
+    color: var(--krem);
+    font-size: 0.85rem;
+  }
+</style>
+</head>
+<body>
+
+  <section class="hero">
+    <h1>Şıklık Kuaför</h1>
+    <p>Randevunu Hemen Al</p>
+    <a class="btn-randevu" href="https://wa.me/905XXXXXXXXX" target="_blank" rel="noopener">Randevu Al</a>
+  </section>
+
+  <section id="hizmetler">
+    <h2>Hizmetlerimiz</h2>
+    <div class="hizmetler-grid">
+      <div class="hizmet-kart">
+        <div class="ikon">✂️</div>
+        <h3>Saç Kesimi</h3>
+        <div class="fiyat">150₺ - 250₺</div>
+      </div>
+      <div class="hizmet-kart">
+        <div class="ikon">🎨</div>
+        <h3>Saç Boyası</h3>
+        <div class="fiyat">500₺ - 800₺</div>
+      </div>
+      <div class="hizmet-kart">
+        <div class="ikon">💨</div>
+        <h3>Fön</h3>
+        <div class="fiyat">100₺ - 150₺</div>
+      </div>
+      <div class="hizmet-kart">
+        <div class="ikon">💅</div>
+        <h3>Manikür</h3>
+        <div class="fiyat">200₺ - 300₺</div>
+      </div>
+      <div class="hizmet-kart">
+        <div class="ikon">🧴</div>
+        <h3>Cilt Bakımı</h3>
+        <div class="fiyat">400₺ - 600₺</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="galeri">
+    <h2>Galeri</h2>
+    <div class="galeri-grid">
+      <div class="galeri-kutu">Fotoğraf Eklenecek</div>
+      <div class="galeri-kutu">Fotoğraf Eklenecek</div>
+      <div class="galeri-kutu">Fotoğraf Eklenecek</div>
+    </div>
+  </section>
+
+  <section class="konum">
+    <h2>Konum ve Saatler</h2>
+    <div class="konum-bilgi">
+      <p><strong>Adres:</strong><br>Örnek Mahallesi, Örnek Sokak No:1, Antalya</p>
+      <p><strong>Çalışma Saatleri:</strong><br>Pazartesi - Cumartesi: 09:00 - 19:00<br>Pazar: Kapalı</p>
+    </div>
+  </section>
+
+  <section class="alt-cta">
+    <h2>Randevunu şimdi al, şıklığın tadını çıkar</h2>
+    <a class="btn-randevu" href="https://wa.me/905XXXXXXXXX" target="_blank" rel="noopener">Randevu Al</a>
+  </section>
+
+  <footer>
+    &copy; 2026 Şıklık Kuaför. Tüm hakları saklıdır.
+  </footer>
+
+</body>
+</html>
